@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section id='images' class="images-container">
+	<div class='container'>
+		{% if images_list%}
+		{% for inner_image_list in images_list %}
+		<div class='row'>
+				{% for image in inner_image_list %}
+	   			<div class="col-md-4">
+	      			<a href={{image}}>
+	         			<img src={{image}} class='img-thumbnail custom-image' alt="flickr image">
+	      			</a>
+	      		</div>
+	      		{% endfor %}
+	   	</div>
+	   	{% endfor%}
+	   	 	<div class='main-pagination text-center'>
+	   		<ul class="pagination">
+			  <li {% if currentpage <=5 %} class='disabled' {% endif %}><a href="/images?searchterm={{search_term}}&page_no=1">&laquo;</a></li>
+			  {% for page in pages_list %}
+			  <li {% if currentpage == page %} class='active' {% endif %}><a href="/images?searchterm={{search_term}}&page_no={{page}}">{{page}}</a></li>
+			  {% endfor %}
+			  <li {% if total_pages <=10 %} class='disabled' {% endif %}><a href="/images?searchterm={{search_term}}&page_no={{total_pages}}">&raquo;</a></li>
+			</ul>	   		
+		</div>
+	   	{%else%}
+	   	<p class='text-center' style='margin-top:200px;'>Oops!! No photos<p>
+	   	{% endif %}
+	</div>
+</section>
+{% endblock %}

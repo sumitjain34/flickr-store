@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section id='dashboard' class='dashboard-container'>
+	<div class='container'>
+		{% if search_terms%}
+		<h2 class='history-heading text-center'> Here is your history<h2>
+		
+		<ul class="list-group search-terms-list">
+		{% for term in search_terms %}
+		<li class="list-group-item text-center"><a href='/images?searchterm={{term}}&page_no=1'>{{term}}</a></li>
+		{% endfor %}
+		</ul>
+		{% else %}
+		<p class='no-history text-center'>Oops!! Your history is Empty</p>
+		{% endif %}
+	</div>
+</section>
+{% endblock %}

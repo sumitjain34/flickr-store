@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Search Section -->
+    <section id="search" class="main-container">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="search-heading">Search Images</h2>
+                </div>
+            </div>
+
+                <form action='/images' method='get'>
+            	<div class='form-group'>
+            		
+            		<input id='searchinput' name='searchterm' type='text' class='form-control' placeholder='Enter a search term' required data-validation-required-message="Please enter a search term" autofocus />
+            	</div>
+            	<div class="col-lg-12 text-center search-button">
+            		<input type='submit' class='btn btn-xl' value="Search" />
+            	</div>
+            </form>
+        </div>
+    </section>
+{% endblock %}
